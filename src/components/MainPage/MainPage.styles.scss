@@ -1,0 +1,169 @@
+.main {
+  height: 3623px;
+}
+
+.hero {
+  position: relative;
+  height: 1050px;
+
+  &__img {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../../after/hero1.png);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    font-size: 5.25rem;
+    color: #f8f13b;
+  }
+
+  &__subtitle {
+    font-size: 2.0625rem;
+    color: #f8f13b;
+  }
+}
+
+.services {
+  min-height: 782px;
+  background-color: #fff;
+  padding-bottom: 8.3125rem;
+
+  .lirstoys {
+    color: #01c3d5;
+    font-family: "comic";
+    &-invert {
+      color: #f90000;
+    }
+  }
+
+  .item {
+    &__img {
+      width: 8.0625rem;
+      height: 8.0625rem;
+      border: 4.2px solid #f90000;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: #ddd;
+      }
+
+      &--1 {
+        position: absolute;
+        top: -13px;
+        height: 100%;
+      }
+      &--2 {
+        height: 70%;
+        align-self: center;
+      }
+
+      &--3 {
+        position: absolute;
+        top: -13px;
+        height: 100%;
+      }
+    }
+
+    &--2 {
+      border: 4.2px solid #01c3d5;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.p-invert {
+  color: #01c3d5;
+}
+
+.section-images {
+  background-color: #f8f13b;
+  min-height: 1038px;
+
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(358px, 1fr));
+    gap: 27px;
+    width: 1200px;
+
+    .img-c {
+      background-color: #fff;
+      position: relative;
+      min-height: 276px;
+
+      &-3 {
+        grid-row: span 2;
+        min-height: 552px;
+      }
+    }
+
+    .img {
+      position: absolute;
+
+      background-size: inherit;
+      height: 100%;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: scale(1);
+      transition: all 0.2s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &-1 {
+        background-image: url(../../after/7.png);
+      }
+      &-2 {
+        background-image: url(../../after/8.png);
+      }
+      &-3 {
+        background-image: url(../../after/6.png);
+      }
+      &-4 {
+        background-image: url(../../after/9.png);
+      }
+      &-5 {
+        background-image: url(../../after/10.png);
+      }
+    }
+  }
+}
+
+.section-buy {
+  h3 {
+    color: #01c3d5;
+  }
+
+  .card {
+    height: 360px;
+    // width: 553px;
+    background-color: #01c3d5;
+  }
+
+  .img_container {
+    height: 160px;
+    width: 220px;
+  }
+}
+
+.text-main {
+  font-family: "Nehama";
+  color: #ffff;
+  font-size: 1.5rem;
+}

@@ -1,0 +1,8 @@
+https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME
+=ship_create_anonymous&ARGUMENTS=-N3399,-Aמסירה,-N35,
+-N5,-Aלירון,-A,-N10,-N,-N,-N,
+-Aמשה לוי,-A,-Aבית אל,-A,-Aיותם המלך,-A5,-A,-A
+,-A,-A0549410031,-A,-A,
+-A,-Aהערה למשלוח,-A,-A1010010,-A,-A,-N,
+-N,-N,-A,-A,-N,-N,-ATXT,-
+A,-A,-N,-Ayohaido159@gmail.com,-A,-A

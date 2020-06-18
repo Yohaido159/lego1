@@ -1,0 +1,649 @@
+{
+  "Data": {
+    "Entities": [
+      {
+        "ID": 68518041,
+        "Folder": "67380502",
+        "Accounting_Type": [67380502],
+        "Billing_Date": ["2020-06-14T14:41:37+03:00"],
+        "Billing_Valid": [true],
+        "Billing_Amount": [0.1],
+        "Billing_PaymentSource": [3],
+        "Billing_CurrencyEnum": [1],
+        "Billing_Provider": ["OfficeGuy"],
+        "Billing_ShovarNumber": ["067068"],
+        "Billing_AuthNumber": ["0700287"],
+        "Billing_PaymentStatus": ["000"],
+        "Billing_PaymentStatusDescription": ["עסקה תקינה"],
+        "Billing_Customer": [
+          {
+            "ID": 68518031,
+            "Name": "1",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67379936,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Items": [
+          {
+            "ID": 68516460,
+            "Name": "בדיקה",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380014,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          },
+          {
+            "ID": 68515404,
+            "Name": "איסוף עצמי",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 68511405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_PaymentMethod": [
+          {
+            "ID": 68518040,
+            "Name": "כרטיס אשראי (1811)",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380497,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_CustomerItems": [
+          {
+            "ID": 68518042,
+            "Name": "חיוב בודד",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          },
+          {
+            "ID": 68518043,
+            "Name": "חיוב בודד",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "PurchasePages_Catalog": [
+          {
+            "ID": 68511490,
+            "Name": "קטלוג",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 68511402,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Transaction": [
+          {
+            "ID": 68518044,
+            "Name": "14/06/2020 14:41",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ]
+      },
+      {
+        "ID": 68518034,
+        "Folder": "67380502",
+        "Accounting_Type": [67380502],
+        "Billing_Date": ["2020-06-14T14:41:23+03:00"],
+        "Billing_Amount": [0.1],
+        "Billing_PaymentSource": [3],
+        "Billing_CurrencyEnum": [1],
+        "Billing_Provider": ["OfficeGuy"],
+        "Billing_PaymentStatus": ["003"],
+        "Billing_PaymentStatusDescription": [
+          "חברת כרטיס האשראי של הלקוח/ה נתנה שגיאה כללית ולא מוסברת. פעמים רבות שגיאה זו קשורה למסגרת האשראי. ניתן להתקשר לחברת כרטיסי האשראי או לנסות לחייב כרטיס אחר."
+        ],
+        "Billing_Customer": [
+          {
+            "ID": 68518031,
+            "Name": "1",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67379936,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Items": [
+          {
+            "ID": 68516460,
+            "Name": "בדיקה",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380014,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          },
+          {
+            "ID": 68515404,
+            "Name": "איסוף עצמי",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 68511405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_PaymentMethod": [
+          {
+            "ID": 68518033,
+            "Name": "כרטיס אשראי (0814)",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380497,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_CustomerItems": [
+          {
+            "ID": 68518035,
+            "Name": "חיוב בודד",
+            "Version": 1,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          },
+          {
+            "ID": 68518036,
+            "Name": "חיוב בודד",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "PurchasePages_Catalog": [
+          {
+            "ID": 68511490,
+            "Name": "קטלוג",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 68511402,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Transaction": [
+          {
+            "ID": 68518037,
+            "Name": "14/06/2020 14:41",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ]
+      },
+      {
+        "ID": 68517863,
+        "Folder": "67380502",
+        "Accounting_Type": [67380502],
+        "Billing_Date": ["2020-06-14T14:39:31+03:00"],
+        "Billing_Valid": [true],
+        "Billing_Amount": [1.0],
+        "Billing_PaymentSource": [5],
+        "Billing_CurrencyEnum": [1],
+        "Billing_Provider": ["OfficeGuy"],
+        "Billing_ShovarNumber": ["067062"],
+        "Billing_AuthNumber": ["0693964"],
+        "Billing_PaymentStatus": ["000"],
+        "Billing_PaymentStatusDescription": ["עסקה תקינה"],
+        "Billing_Customer": [
+          {
+            "ID": 68517385,
+            "Name": "לקוח/ה מזדמנ/ת",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67379936,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Items": [
+          {
+            "ID": 68187561,
+            "Name": "מוצר/שירות מזדמן",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380014,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_PaymentMethod": [
+          {
+            "ID": 68517862,
+            "Name": "כרטיס אשראי (1811)",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380497,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_CustomerItems": [
+          {
+            "ID": 68517864,
+            "Name": "חיוב בודד",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Transaction": [
+          {
+            "ID": 68517866,
+            "Name": "14/06/2020 14:39",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ]
+      },
+      {
+        "ID": 68517388,
+        "Folder": "67380502",
+        "Accounting_Type": [67380502],
+        "Billing_Date": ["2020-06-14T14:39:10+03:00"],
+        "Billing_Amount": [1.0],
+        "Billing_PaymentSource": [5],
+        "Billing_CurrencyEnum": [1],
+        "Billing_Provider": ["OfficeGuy"],
+        "Billing_PaymentStatus": ["003"],
+        "Billing_PaymentStatusDescription": [
+          "חברת כרטיס האשראי של הלקוח/ה נתנה שגיאה כללית ולא מוסברת. פעמים רבות שגיאה זו קשורה למסגרת האשראי. ניתן להתקשר לחברת כרטיסי האשראי או לנסות לחייב כרטיס אחר."
+        ],
+        "Billing_Customer": [
+          {
+            "ID": 68517385,
+            "Name": "לקוח/ה מזדמנ/ת",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67379936,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Items": [
+          {
+            "ID": 68187561,
+            "Name": "מוצר/שירות מזדמן",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380014,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_PaymentMethod": [
+          {
+            "ID": 68517387,
+            "Name": "כרטיס אשראי (0814)",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380497,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_CustomerItems": [
+          {
+            "ID": 68517389,
+            "Name": "חיוב בודד",
+            "Version": 1,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Transaction": [
+          {
+            "ID": 68517390,
+            "Name": "14/06/2020 14:39",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ]
+      },
+      {
+        "ID": 68516761,
+        "Folder": "67380502",
+        "Accounting_Type": [67380502],
+        "Billing_Date": ["2020-06-14T14:08:07+03:00"],
+        "Billing_Valid": [true],
+        "Billing_Amount": [0.1],
+        "Billing_PaymentSource": [3],
+        "Billing_CurrencyEnum": [1],
+        "Billing_Provider": ["OfficeGuy"],
+        "Billing_ShovarNumber": ["067050"],
+        "Billing_AuthNumber": ["0593273"],
+        "Billing_PaymentStatus": ["000"],
+        "Billing_PaymentStatusDescription": ["עסקה תקינה"],
+        "Billing_Customer": [
+          {
+            "ID": 68516758,
+            "Name": "יוחאי",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67379936,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Items": [
+          {
+            "ID": 68516460,
+            "Name": "בדיקה",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380014,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          },
+          {
+            "ID": 68515404,
+            "Name": "איסוף עצמי",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 68511405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_PaymentMethod": [
+          {
+            "ID": 68516760,
+            "Name": "כרטיס אשראי (1811)",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380497,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_CustomerItems": [
+          {
+            "ID": 68516762,
+            "Name": "חיוב בודד",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          },
+          {
+            "ID": 68516763,
+            "Name": "חיוב בודד",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "PurchasePages_Catalog": [
+          {
+            "ID": 68511490,
+            "Name": "קטלוג",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 68511402,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Transaction": [
+          {
+            "ID": 68516765,
+            "Name": "14/06/2020 14:08",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ]
+      },
+      {
+        "ID": 68516475,
+        "Folder": "67380502",
+        "Accounting_Type": [67380502],
+        "Billing_Date": ["2020-06-14T13:57:31+03:00"],
+        "Billing_Valid": [true],
+        "Billing_Amount": [0.1],
+        "Billing_PaymentSource": [3],
+        "Billing_CurrencyEnum": [1],
+        "Billing_Provider": ["OfficeGuy"],
+        "Billing_ShovarNumber": ["067047"],
+        "Billing_AuthNumber": ["0559323"],
+        "Billing_PaymentStatus": ["000"],
+        "Billing_PaymentStatusDescription": ["עסקה תקינה"],
+        "Billing_Customer": [
+          {
+            "ID": 68516469,
+            "Name": "יוחאי",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67379936,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Items": [
+          {
+            "ID": 68516460,
+            "Name": "בדיקה",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380014,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          },
+          {
+            "ID": 68515404,
+            "Name": "איסוף עצמי",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 68511405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_PaymentMethod": [
+          {
+            "ID": 68516474,
+            "Name": "כרטיס אשראי (1811)",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380497,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_CustomerItems": [
+          {
+            "ID": 68516476,
+            "Name": "חיוב בודד",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          },
+          {
+            "ID": 68516477,
+            "Name": "חיוב בודד",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "PurchasePages_Catalog": [
+          {
+            "ID": 68511490,
+            "Name": "קטלוג",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 68511402,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Transaction": [
+          {
+            "ID": 68516478,
+            "Name": "14/06/2020 13:57",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ]
+      },
+      {
+        "ID": 68187564,
+        "Folder": "67380502",
+        "Accounting_Type": [67380502],
+        "Billing_Date": ["2020-06-10T17:22:07+03:00"],
+        "Billing_Valid": [true],
+        "Billing_Amount": [1.0],
+        "Billing_PaymentSource": [5],
+        "Billing_CurrencyEnum": [1],
+        "Billing_Provider": ["OfficeGuy"],
+        "Billing_ShovarNumber": ["066724"],
+        "Billing_AuthNumber": ["0231507"],
+        "Billing_PaymentStatus": ["000"],
+        "Billing_PaymentStatusDescription": ["עסקה תקינה"],
+        "Billing_Items": [
+          {
+            "ID": 68187561,
+            "Name": "מוצר/שירות מזדמן",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380014,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_PaymentMethod": [
+          {
+            "ID": 68187563,
+            "Name": "כרטיס אשראי (1811)",
+            "Version": 1,
+            "Status": 0,
+            "SchemaID": 67380497,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_CustomerItems": [
+          {
+            "ID": 68187565,
+            "Name": "חיוב בודד",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380494,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ],
+        "Billing_Transaction": [
+          {
+            "ID": 68187566,
+            "Name": "10/06/2020 17:22",
+            "Version": 0,
+            "Status": 0,
+            "SchemaID": 67380405,
+            "RowKeys": null,
+            "ColumnKeys": null,
+            "Fields": null
+          }
+        ]
+      }
+    ],
+    "HasNextPage": false
+  },
+  "Status": 0,
+  "UserErrorMessage": null,
+  "TechnicalErrorDetails": null
+}

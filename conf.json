@@ -1,0 +1,70 @@
+{
+  "fastFolderStructureReduxStart.fileTemplates": {
+    "type": "object",
+    "scope": "window",
+    "default": {
+      "Redux Start": [
+        "import { createStore, applyMiddleware } from 'redux';",
+        "import logger from 'redux-logger';",
+        "import CreateSagaMiddleware from 'redux-saga';",
+        "",
+        "import rootReducer from './root-reducer';",
+        "import rootSaga from './root-saga';",
+        "",
+        "const sagaMiddleware = CreateSagaMiddleware();",
+        "const middleware = [sagaMiddleware];",
+        "",
+        "",
+        "if (process.env.NODE_ENV === 'development') {",
+        "middleware.push(logger);",
+        "}",
+        "",
+        "const store = createStore(rootReducer, applyMiddleware(...middleware));",
+        "",
+        "sagaMiddleware.run(rootSaga);",
+        "",
+        "export default store;"
+      ],
+      "Root Saga": [
+        "import { all, call } from 'redux-saga/effects';",
+        "",
+        "export default function* rootSaga() {",
+        "yield all([]);",
+        "}"
+      ],
+      "Root Reducer": ["import { combineReducers } from 'redux';", "export default combineReducers({});"]
+    }
+  },
+  "fastFolderStructureReduxStart.structures": {
+    "type": "array",
+    "scope": "window",
+    "default": [
+      {
+        "name": "Redux Start",
+        "structure": [
+          {
+            "fileName": "store.js",
+            "template": "Redux Start"
+          },
+          {
+            "fileName": "root-saga.js",
+            "template": "Root Saga"
+          },
+          {
+            "fileName": "root-reducer.js",
+            "template": "Root Reducer"
+          }
+        ]
+      }
+    ],
+    "description": "Configure as many structures as you would like."
+  }
+}
+
+,
+      {
+        "command": "FFS.createFolderStructureReduxStart",
+        "title": "Redux Start"
+      }
+
+      "onCommand:FFS.createFolderStructureReduxStart"

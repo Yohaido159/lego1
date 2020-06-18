@@ -1,0 +1,19 @@
+https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_create_anonymous&ARGUMENTS=-N3399,-Aמסירה,-N35,-N5,-A,-A,-N10,-N,-N,-N,-Aמשה לוי,-A,-Aבית אל,-A,-Aסופה,-A5,-A,-A,-A,-A0549410031,-A,-A,-A,-A,-A,-A21968261,-A,-A,-N,-N,-N,-A,-A,-N,-N,-AXML,-A,-A,-N,-Ayohaido159@gmail.com,-A,-A
+
+https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_create_anonymous&ARGUMENTS=-N3399,-A<p2>,-N<p3>,-N<p4>,-A<p5>,A<p6>,-N<p7>,-N<p8>,-N<p9>,-N<p10>,-A<p1>,-A<p12>,-A<p13 >,-A<p14 >,-A<p15>,-A<p16>,-A<p17 >,-A<p18>,-A<p19>,-A<p20>,-A<p21>,-A<P22>,-A<p23>,-A<p24>,-A<p25>,-A<p26>,-A<p27>,-A<p28>,-N<p29>,-N<p30>,-N<p31>,-A<p32>,-A<p33>,-N<p34>,-N<p35>,-A<P36>,-A<p37>,-A<p38>,-N<p39>
+
+https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_print_ws&ARGUMENTS=-N21968261,468,5
+
+ZaXmdTsr597vKd2mmY8rN0W9qWPhFrpsfGubh8gKMDqFBL9YLt
+67576974
+
+https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_create_anonymous&ARGUMENTS=-N3399,-A%D7%9E%D7%A1%D7%99%D7%A8%D7%94,-N35,-N5,-A,-A,-N10,-N,-N,-N,-A%D7%99%D7%95%D7%97%D7%90%D7%99,-A,-A%D7%91%D7%99%D7%AA+%D7%90%D7%9C,-A,-A+%D7%A1%D7%95%D7%A4%D7%94+,-A1,-A,-A,-A,-Aundefined,-A,-A,-A,-A,-A,-A102,-A,-A,-N,-N,-N,-A,-A,-N,-N,-ATXT,-A,-A,-N,-A,-A,-A
+
+
+https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_create_anonymous&ARGUMENTS=-N3399,-A%D7%9E%D7%A1%D7%99%D7%A8%D7%94,-N35,-N5,-A,-A,-N10,-N,-N,-N,-A%D7%99%D7%95%D7%97%D7%90%D7%99,-A,-A%D7%91%D7%99%D7%AA+%D7%90%D7%9C,-A,-A+%D7%A1%D7%95%D7%A4%D7%94+,-A1,-A,-A,-A,-Aundefined,-A,-A,-A,-A,-A,-A102,-A,-A,-N,-N,-N,-A,-A,-N,-N,-ATXT,-A,-A,-N,-A,-A,-A
+
+https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_create_anonymous&ARGUMENTS=-N3399,-A%D7%9E%D7%A1%D7%99%D7%A8%D7%94,-N35,-N5,-A,-A,-N10,-N,-N,-N,-A%D7%99%D7%95%D7%97%D7%90%D7%99,-A,-A%D7%91%D7%99%D7%AA+%D7%90%D7%9C,-A,-A+%D7%A1%D7%95%D7%A4%D7%94+,-A1,-A,-A,-A,-Aundefined,-A,-A,-A,-A,-A,-A102,-A,-A,-N,-N,-N,-A,-A,-N,-N,-ATXT,-A,-A,-N,-A,-A,-A
+
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL3J1bmNvbS5jby5pbC9jbGFpbXMvY2xpZW50bm8iOiIzMzk5IiwiaHR0cHM6Ly9ydW5jb20uY28uaWwvY2xhaW1zL3BocmFzZSI6IjdhMWExYmMxLTUwMTMtNGMwMS05OTEzLTJlZDk1NjVkMGYwYiIsImV4cCI6MTYwOTE2OTM1MiwiaXNzIjoiaHR0cHM6Ly9ydW5jb20uY28uaWwiLCJhdWQiOiJodHRwczovL3J1bmNvbS5jby5pbCJ9.0BK-7WPhhZvgT05I_3lXbXe-g5zvV8LkFpKdOhHPuHc
+
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL3J1bmNvbS5jby5pbC9jbGFpbXMvY2xpZW50bm8iOiIzMzk5IiwiaHR0cHM6Ly9ydW5jb20uY28uaWwvY2xhaW1zL3BocmFzZSI6IjdhMWExYmMxLTUwMTMtNGMwMS05OTEzLTJlZDk1NjVkMGYwYiIsImV4cCI6MTYwOTE2OTM1MiwiaXNzIjoiaHR0cHM6Ly9ydW5jb20uY28uaWwiLCJhdWQiOiJodHRwczovL3J1bmNvbS5jby5pbCJ9.0BK-7WPhhZvgT05I_3lXbXe-g5zvV8LkFpKdOhHPuHc
