@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/lego1/static/css/main.a36c460e.chunk.css",
+    "main.js": "/lego1/static/js/main.f4565e74.chunk.js",
+    "main.js.map": "/lego1/static/js/main.f4565e74.chunk.js.map",
+    "runtime-main.js": "/lego1/static/js/runtime-main.6f80ce45.js",
+    "runtime-main.js.map": "/lego1/static/js/runtime-main.6f80ce45.js.map",
+    "static/js/2.2dc5fc8a.chunk.js": "/lego1/static/js/2.2dc5fc8a.chunk.js",
+    "static/js/2.2dc5fc8a.chunk.js.map": "/lego1/static/js/2.2dc5fc8a.chunk.js.map",
+    "index.html": "/lego1/index.html",
+    "precache-manifest.d84e49ee0462aa7cd3c63efd0037c4d1.js": "/lego1/precache-manifest.d84e49ee0462aa7cd3c63efd0037c4d1.js",
+    "service-worker.js": "/lego1/service-worker.js",
+    "static/css/main.a36c460e.chunk.css.map": "/lego1/static/css/main.a36c460e.chunk.css.map",
+    "static/js/2.2dc5fc8a.chunk.js.LICENSE.txt": "/lego1/static/js/2.2dc5fc8a.chunk.js.LICENSE.txt",
+    "static/media/1.png": "/lego1/static/media/1.f33bce28.png",
+    "static/media/MainPage.styles.scss": "/lego1/static/media/hero1.8992f689.png",
+    "static/media/2.png": "/lego1/static/media/2.8ce6b6c5.png",
+    "static/media/3.png": "/lego1/static/media/3.46ee4b2f.png",
+    "static/media/4.png": "/lego1/static/media/4.61509327.png",
+    "static/media/5.png": "/lego1/static/media/5.32d006d7.png",
+    "static/media/index.scss": "/lego1/static/media/comic.cb5a21a9.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6f80ce45.js",
+    "static/js/2.2dc5fc8a.chunk.js",
+    "static/css/main.a36c460e.chunk.css",
+    "static/js/main.f4565e74.chunk.js"
+  ]
+}
