@@ -1,3 +1,10 @@
-const usersActionTypes = {};
+const usersActionTypes = {
+  FETCH_USERS_FORM_API_START: "FETCH_USERS_FORM_API_START",
+  SET_ALL_NEW_USER_DETAIL: "SET_ALL_NEW_USER_DETAIL",
+  SET_BUY_USER_DETAIL: "SET_BUY_USER_DETAIL",
+  SEND_TO_API: "SEND_TO_API",
+  SET_OPEN_SNACK: "SET_OPEN_SNACK",
+  ERR_MSG: "ERR_MSG",
+};
 
 export default usersActionTypes;

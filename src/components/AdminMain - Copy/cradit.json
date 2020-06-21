@@ -1,0 +1,42 @@
+{
+  "Customer": {
+    "Name": "קיוחאגי דאידו",
+    "Phone": 549410031,
+    "EmailAddress": "yohaido159@gmail.co",
+    "Property_68516405": "ירושלים",
+    "Property_68515460": "קרית יובל",
+    "Property_68515470": "5"
+  },
+  "PaymentMethod": {
+    "CreditCard_Number": "12312312",
+    "CreditCard_ExpirationMonth": 12,
+    "CreditCard_ExpirationYear": 2020,
+    "CreditCard_CVV": "123",
+    "CreditCard_CitizenID": "123456789",
+    "Type": 1
+  },
+  "Items": [
+    {
+      "Item": {
+        "Name": "לגו 30 חלקים",
+        "Price": 0.1,
+        "Currency": null,
+        "Cost": 0.1,
+        "ExternalIdentifier": null,
+        "SearchMode": null
+      },
+      "Quantity": 1,
+      "Description": "לגו 30 חלקים"
+    }
+  ],
+  "UpdateCustomerByEmail": true,
+  "UpdateCustomerByEmail_AttachDocument": true,
+  "SendDocumentByEmail": true,
+  "DocumentLanguage": true,
+  "AuthoriseOnly": true,
+  "DraftDocument": null,
+  "Credentials": {
+    "CompanyID": 67576974,
+    "APIKey": "ZaXmdTsr597vKd2mmY8rN0W9qWPhFrpsfGubh8gKMDqFBL9YLt"
+  }
+}

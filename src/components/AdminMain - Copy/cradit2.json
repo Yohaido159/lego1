@@ -1,0 +1,71 @@
+{
+  "Customer": {
+    "ExternalIdentifier": null,
+    "NoVAT": null,
+    "SearchMode": 0,
+    "Name": "Danny Dean",
+    "Phone": null,
+    "EmailAddress": null,
+    "City": null,
+    "Address": null,
+    "ZipCode": null,
+    "CompanyNumber": null,
+    "ID": null,
+    "Folder": null
+  },
+  "PaymentMethod": {
+    "ID": null,
+    "CustomerID": null,
+    "CreditCard_Number": "130002070",
+    "CreditCard_LastDigits": null,
+    "CreditCard_ExpirationMonth": 12,
+    "CreditCard_ExpirationYear": 2020,
+    "CreditCard_CVV": "123",
+    "CreditCard_Track2": null,
+    "CreditCard_CitizenID": "123456789",
+    "CreditCard_CardMask": null,
+    "CreditCard_Token": null,
+    "Type": 1
+  },
+  "SingleUseToken": null,
+  "CreditCardAuthNumber": null,
+  "Items": [
+    {
+      "Item": {
+        "ID": null,
+        "Name": "My Product",
+        "Price": null,
+        "Currency": null,
+        "Cost": null,
+        "ExternalIdentifier": null,
+        "SearchMode": null
+      },
+      "Quantity": 2,
+      "UnitPrice": 50,
+      "Currency": null,
+      "Description": null
+    }
+  ],
+  "Payments_Count": null,
+  "Payments_FirstAmount": null,
+  "Payments_NonFirstAmount": null,
+  "UpdateCustomerByEmail": null,
+  "UpdateCustomerByEmail_AttachDocument": null,
+  "UpdateCustomerByEmail_Language": null,
+  "SendDocumentByEmail": true,
+  "SendDocumentByEmail_Language": null,
+  "DocumentLanguage": null,
+  "DocumentDescription": null,
+  "VATIncluded": true,
+  "VATRate": null,
+  "AuthoriseOnly": null,
+  "DraftDocument": null,
+  "DocumentType": null,
+  "SupportCredit": null,
+  "MerchantNumber": null,
+  "SendCopyToOrganization": null,
+  "Credentials": {
+    "CompanyID": 12345678,
+    "APIKey": "mljCOJeyifzrzPznmRhUMqmDhYOwLpk3T9qsdwQiTQ2nwlisVr"
+  }
+}
