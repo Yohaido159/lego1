@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route } from "react-router-dom";
 
 import { ThemeProvider } from "@material-ui/core/styles";
 
@@ -14,12 +14,12 @@ import theme from "../src/UI/theme";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <ThemeProvider theme={theme}>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/adminliron" component={AdminMain} />
         </ThemeProvider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
