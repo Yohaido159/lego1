@@ -12,6 +12,16 @@ const MakePhoneWithoutZero = (phone) => {
   return newPhone;
 };
 
+const MakeMonthWithoutZero = (mounth) => {
+  console.log(mounth);
+  let newMounth = "";
+  if (mounth.toString()[0] === "0") {
+    newMounth = parseInt(mounth.toString().slice(1));
+    console.log(newMounth);
+  }
+  return newMounth;
+};
+
 export function* sendToAPI() {
   const cart = yield select((state) => state.cart_main);
   console.log(cart);
@@ -27,7 +37,7 @@ export function* sendToAPI() {
     },
     PaymentMethod: {
       CreditCard_Number: cart.cardNumber,
-      CreditCard_ExpirationMonth: cart.cardEXPMount,
+      CreditCard_ExpirationMonth: MakeMonthWithoutZero(cart.cardEXPMount),
       CreditCard_ExpirationYear: cart.cardEXPYear,
       CreditCard_CVV: cart.cardCVC,
       Type: 1,

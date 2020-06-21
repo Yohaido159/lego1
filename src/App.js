@@ -16,8 +16,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          {/* <Route exact path="/" component={MainPage} /> */}
-          <Route exact path="/" component={AdminMain} />
+          <Route exact path="/" component={MainPage} />
+          <Route exact path="/adminliron" component={AdminMain} />
         </ThemeProvider>
       </BrowserRouter>
     </div>
