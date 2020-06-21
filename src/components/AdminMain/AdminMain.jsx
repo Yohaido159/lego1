@@ -64,85 +64,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MockUser = {
-  Data: {
-    Entities: [
-      {
-        ID: 10,
-        Customers_FullName: ["יוסף"],
-        Customers_Status: [
-          {
-            ColumnKeys: null,
-            Fields: null,
-            ID: 67580455,
-            Name: "לתת",
-            RowKeys: null,
-            SchemaID: 66123590,
-            Status: 0,
-            Version: 0,
-          },
-        ],
-      },
-      {
-        ID: 11,
-        Customers_FullName: ["דוד"],
-        Customers_Status: [
-          {
-            ColumnKeys: null,
-            Fields: null,
-            ID: 67580455,
-            Name: "לתת",
-            RowKeys: null,
-            SchemaID: 66123590,
-            Status: 0,
-            Version: 0,
-          },
-        ],
-      },
-      {
-        ID: 12,
-        Customers_FullName: ["אברהם"],
-        Customers_Status: [
-          {
-            ColumnKeys: null,
-            Fields: null,
-            ID: 67580455,
-            Name: "נתתי",
-            RowKeys: null,
-            SchemaID: 66123590,
-            Status: 0,
-            Version: 0,
-          },
-        ],
-      },
-      {
-        ID: 13,
-        Customers_FullName: ["יצחק"],
-        Customers_Status: [
-          {
-            ColumnKeys: null,
-            Fields: null,
-            ID: 67580455,
-            Name: "נתתי",
-            RowKeys: null,
-            SchemaID: 66123590,
-            Status: 0,
-            Version: 0,
-          },
-        ],
-      },
-      {
-        ID: 14,
-        Customers_FullName: ["משה"],
-      },
-      {
-        ID: 15,
-        Customers_FullName: ["אהרון"],
-      },
-    ],
-  },
-};
-
 const makeArrSimpleToGive = (arr) => {
   let newArr = [];
   console.log(arr);
@@ -214,8 +135,8 @@ const checkUserAfterGive = (arr) => {
 };
 
 const AdminMain = (props) => {
-  // const key = "ZaXmdTsr597vKd2mmY8rN0W9qWPhFrpsfGubh8gKMDqFBL9YLt";
-  const key = "aa";
+  const key = "ZaXmdTsr597vKd2mmY8rN0W9qWPhFrpsfGubh8gKMDqFBL9YLt";
+  // const key = "aa";
 
   let num_shop = 67576974;
 
@@ -243,6 +164,9 @@ const AdminMain = (props) => {
         Folder: 67380502,
         IncludeInheritedFolders: true,
         LoadProperties: true,
+        Paging: {
+          PageSize: 1000,
+        },
         Credentials: {
           CompanyID: num_shop,
           APIKey: key,
@@ -259,6 +183,9 @@ const AdminMain = (props) => {
         Folder: 67379936,
         IncludeInheritedFolders: true,
         LoadProperties: true,
+        Paging: {
+          PageSize: 1000,
+        },
         Credentials: {
           CompanyID: num_shop,
           APIKey: key,
@@ -269,9 +196,6 @@ const AdminMain = (props) => {
     };
     fetchAllUser();
   }, []);
-
-  /* FOR TEST */
-  // useEffect(() => {}, [sticker]);
 
   const handleChange = (event, newValue) => {
     setValueForLable(newValue);
@@ -299,7 +223,6 @@ const AdminMain = (props) => {
 
       // מושך מכל לקוח חדש שהזמין את שם העיר רחוב מס' בית וטלפון
       let allNewUserDetail = getAllNewUserDetail(newUser);
-      let allUserBuy = getAllUserBuy(newUser);
 
       console.log(allNewUserDetail);
 
@@ -340,20 +263,52 @@ const AdminMain = (props) => {
     console.log(res);
   };
 
-  const getSricker = async (details, type_send) => {
+  const parseXml = (xml) => {
+    let parser = new DOMParser();
+    let xmlDoc = parser.parseFromString(xml, "text/xml");
+
+    let answer = xmlDoc.getElementsByTagName("answer")[0].innerHTML;
+    answer = "<ans>" + answer + "</ans>";
+
+    let answerDoc = parser.parseFromString(answer, "text/xml");
+
+    let error = answerDoc.getElementsByTagName("ship_create_error")[0].innerHTML;
+    let ship_create_num = answerDoc.getElementsByTagName("ship_create_num")[0].innerHTML;
+
+    console.log(answer);
+    console.log(answerDoc);
+    console.log(ship_create_num);
+
+    error = error.replace("<![CDATA[", "").replace("]]>", "");
+    console.log(error);
+
+    ship_create_num = ship_create_num.replace("<![CDATA[", "").replace("]]>", "");
+    console.log(ship_create_num);
+
+    if (ship_create_num !== "0" && ship_create_num !== "") {
+      if (error === "") {
+        return { success: true, ship_create_num };
+      }
+    }
+    return { success: false, error };
+  };
+
+  const getSricker = async (row, type_send) => {
     let token = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL3J1bmNvbS5jby5pbC9jbGFpbXMvY2xpZW50bm8iOiIzMzk5IiwiaHR0cHM6Ly9ydW5jb20uY28uaWwvY2xhaW1zL3BocmFzZSI6IjdhMWExYmMxLTUwMTMtNGMwMS05OTEzLTJlZDk1NjVkMGYwYiIsImV4cCI6MTYwOTE2OTM1MiwiaXNzIjoiaHR0cHM6Ly9ydW5jb20uY28uaWwiLCJhdWQiOiJodHRwczovL3J1bmNvbS5jby5pbCJ9.0BK-7WPhhZvgT05I_3lXbXe-g5zvV8LkFpKdOhHPuHc`;
+    // let token = `abc`;
 
     let url1 = `https://cors-anywhere.herokuapp.com/https://run.hfd.co.il/RunCom.Server/Request.aspx`;
+    // let url1 = `abc`;
 
     console.log(url1);
     console.log(type_send);
 
     const type_send_func = (type_send) => {
       if (type_send === "משלוח עד הבית") {
-        return { type: "מסירה", num_code_send: 35, type_code_send: 10, locker: "", detail: `${details.item}` };
+        return { type: "מסירה", num_code_send: 35, type_code_send: 10, locker: "", detail: `${row.item}` };
       }
       if (type_send === "משלוח ללוקר") {
-        return { type: "איסוף", num_code_send: 50, type_code_send: 11, locker: "Y", detail: `${details.item}` };
+        return { type: "איסוף", num_code_send: 50, type_code_send: 11, locker: "Y", detail: `${row.item}` };
       }
     };
     const type_send_obj = type_send_func(type_send);
@@ -365,34 +320,22 @@ const AdminMain = (props) => {
       params: {
         APPNAME: "run",
         PRGNAME: "ship_create_anonymous",
-        ARGUMENTS: `-N3399,-A${type_send_obj.type},-N${type_send_obj.num_code_send},-N5,-A,-A,-N${
-          type_send_obj.type_code_send
-        },-N,-N,-N,-A${details.name},-A,-A${details.city},-A,-A${details.street},-A${details.num_home},-A,-A,-A,-A${
-          details.phone
-        },-A,-A,-A,-A,-A${type_send_obj.detail},-A${details.id + 1},-A,-A,-N,-N,-N,-A,-A,-N,-N,-ATXT,-A${
-          type_send_obj.locker
-        },-A,-N,-A,-A,-A`,
+        ARGUMENTS: `-N3399,-A${type_send_obj.type},-N${type_send_obj.num_code_send},-N5,-A,-A,-N${type_send_obj.type_code_send},-N,-N,-N,-A${row.name},-A,-A${row.city},-A,-A${row.street},-A${row.num_home},-A,-A,-A,-A${row.phone},-A,-A,-A,-A,-A${type_send_obj.detail},-A${row.id},-A,-A,-N,-N,-N,-A,-A,-N,-N,-AXML,-A${type_send_obj.locker},-A,-N,-A,-A,-A`,
       },
     });
-    let number;
-    let url2;
-    console.log(res.data);
-    if (isNaN(parseInt(res.data))) {
-      let regex = res.data.match(/\d+/g);
-      number = regex.slice(-1)[0];
-      console.log(number);
-      url2 = `https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_print_ws&ARGUMENTS=-N${number}`;
-    } else {
-      console.log(number);
-      number = res.data;
-      url2 = `https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_print_ws&ARGUMENTS=-N${number}`;
-    }
-    url2 = `https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_print_ws&ARGUMENTS=-N${number}`;
 
-    console.log(url2);
-    return new Promise((resolve, reject) => {
-      resolve(url2);
-    });
+    let xmlRes = parseXml(res.data);
+    let url2;
+    if (xmlRes.success === true) {
+      url2 = `https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_print_ws&ARGUMENTS=-N${xmlRes.ship_create_num}`;
+      console.log(url2);
+      sendToAPI(row);
+      return new Promise((resolve, reject) => {
+        resolve({ success: true, url: url2 });
+      });
+    } else {
+      return { success: false, msg: xmlRes.error };
+    }
   };
 
   const getAllNewUserDetail = (arr) => {
@@ -439,14 +382,20 @@ const AdminMain = (props) => {
     return mainDetailUser;
   };
 
-  const getAllUserBuy = (arr) => {};
-
   const ChangeNameToGive = async (row, type_send) => {
-    handleClick();
     console.log(row);
-    // sendToAPI(row);
+    let msg;
     let urlSticker = await getSricker(row, type_send);
-    console.log(urlSticker);
+    if (urlSticker.success === true) {
+      handleClick();
+      urlSticker = urlSticker.url;
+      console.log(urlSticker);
+      redirect_blank(urlSticker);
+      handleClose();
+    } else if (urlSticker.success === false) {
+      msg = urlSticker.msg;
+      console.log(msg);
+    }
 
     function redirect_blank(url) {
       console.log(url);
@@ -456,28 +405,7 @@ const AdminMain = (props) => {
       console.log(a.href);
       a.click();
     }
-    redirect_blank(urlSticker);
-    handleClose();
   };
-
-  // const mockUser2 = [
-  //   {
-  //     id: 1111,
-  //     name: "יוחאי",
-  //     city: "בית אל",
-  //     street: " סופה ",
-  //     num_home: "1",
-  //     url: sticker,
-  //   },
-  // ];
-
-  // getSricker({
-  //   id: 1111,
-  //   name: "יוחאי",
-  //   city: "בית אל",
-  //   street: " סופה ",
-  //   num_home: "1",
-  // });
 
   const handleChangeName = (e) => {
     e.preventDefault();
@@ -494,6 +422,29 @@ const AdminMain = (props) => {
 
     setOpen(false);
   };
+
+  const fakeUser = [
+    {
+      city: "בית אל",
+      id: 68627396,
+      item: "בדיקה",
+      name: "יוחאי",
+      num_home: "3",
+      phone: "0549410031",
+      street: "sufa street",
+      type_send: "משלוח עד הבית",
+    },
+    {
+      city: "בית אל",
+      id: 68627901,
+      item: "בדיקה",
+      name: "הי",
+      num_home: "5",
+      phone: "0549410031",
+      street: "יותם",
+      type_send: "משלוח ללוקר",
+    },
+  ];
 
   return (
     <>
@@ -543,13 +494,18 @@ const AdminMain = (props) => {
                 </TableHead>
                 <TableBody>
                   {allNewUserDetail?.map((row) => (
+                    // {fakeUser?.map((row) => (
                     <TableRow hover role="checkbox" tabIndex={-1} key={uuid()}>
                       <TableCell align="right">
                         {row.type_send !== "איסוף עצמי" ? (
                           <Button variant="contained" onClick={() => ChangeNameToGive(row, row.type_send)}>
                             צפה במדבקה
                           </Button>
-                        ) : null}
+                        ) : (
+                          <Button variant="contained" onClick={() => sendToAPI(row)}>
+                            העבר לשולם
+                          </Button>
+                        )}
                       </TableCell>
                       <TableCell align="right">{row.type_send}</TableCell>
                       <TableCell align="right">{row.item}</TableCell>
@@ -569,7 +525,7 @@ const AdminMain = (props) => {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell align="right">צפה במדבקה</TableCell>
+                    {/* <TableCell align="right">צפה במדבקה</TableCell> */}
                     <TableCell align="right">עיר</TableCell>
                     <TableCell align="right">רחוב</TableCell>
                     <TableCell align="right">מס בית</TableCell>
