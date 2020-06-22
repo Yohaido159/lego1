@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/lego3/static/css/main.351183e6.chunk.css",
-    "main.js": "/lego3/static/js/main.8625174a.chunk.js",
-    "main.js.map": "/lego3/static/js/main.8625174a.chunk.js.map",
+    "main.js": "/lego3/static/js/main.16dafd80.chunk.js",
+    "main.js.map": "/lego3/static/js/main.16dafd80.chunk.js.map",
     "runtime-main.js": "/lego3/static/js/runtime-main.2cceff3b.js",
     "runtime-main.js.map": "/lego3/static/js/runtime-main.2cceff3b.js.map",
     "static/js/2.18bf6952.chunk.js": "/lego3/static/js/2.18bf6952.chunk.js",
     "static/js/2.18bf6952.chunk.js.map": "/lego3/static/js/2.18bf6952.chunk.js.map",
     "index.html": "/lego3/index.html",
-    "precache-manifest.86d0f7a7116a5aa622a285588d72fb76.js": "/lego3/precache-manifest.86d0f7a7116a5aa622a285588d72fb76.js",
+    "precache-manifest.887b0a4c5344958f48d06c56c806834b.js": "/lego3/precache-manifest.887b0a4c5344958f48d06c56c806834b.js",
     "service-worker.js": "/lego3/service-worker.js",
     "static/css/main.351183e6.chunk.css.map": "/lego3/static/css/main.351183e6.chunk.css.map",
     "static/js/2.18bf6952.chunk.js.LICENSE.txt": "/lego3/static/js/2.18bf6952.chunk.js.LICENSE.txt",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.2cceff3b.js",
     "static/js/2.18bf6952.chunk.js",
     "static/css/main.351183e6.chunk.css",
-    "static/js/main.8625174a.chunk.js"
+    "static/js/main.16dafd80.chunk.js"
   ]
 }
