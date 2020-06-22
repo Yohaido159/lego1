@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f7fdb3fd9cf123d49642c933ce7bb57c",
+    "revision": "f6e25efe3d46b88b2e5caa25bba27139",
     "url": "/lego3/index.html"
   },
   {
-    "revision": "9e9cf206e86ee3928b2b",
+    "revision": "6c94a687a6e359859d98",
     "url": "/lego3/static/css/main.351183e6.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/lego3/static/js/2.18bf6952.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9e9cf206e86ee3928b2b",
-    "url": "/lego3/static/js/main.a477a700.chunk.js"
+    "revision": "6c94a687a6e359859d98",
+    "url": "/lego3/static/js/main.3fd8d767.chunk.js"
   },
   {
     "revision": "39c4265d4d1fbce3639f",
