@@ -6,7 +6,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Grid from "@material-ui/core/Grid";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setCartItems } from "../../redux/cart/cart.actions";
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
@@ -36,13 +37,20 @@ export default function Review() {
           <ListItemText primary={cart.itemPrice} />
         </ListItem>
         <ListItem className={classes.listItem}>
-          <Typography>{cart.ship}</Typography>
+          <Typography>{`כמות:`}</Typography>
+          <ListItemText primary={cart.itemQuantity} />
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          <Typography>{`סוג משלוח:  ${cart.type_send}`}</Typography>
           <ListItemText primary={cart.shipPrice} />
         </ListItem>
 
         <ListItem className={classes.listItem}>
           <Typography className={classes.total}>סך הכל</Typography>
-          <ListItemText className={classes.total} primary={parseInt(cart.shipPrice) + parseInt(cart.itemPrice)} />
+          <ListItemText
+            className={classes.total}
+            primary={parseFloat(cart.shipPrice) + parseFloat(cart.itemPrice) * parseFloat(cart.itemQuantity)}
+          />
         </ListItem>
       </List>
       <Grid container spacing={2}>

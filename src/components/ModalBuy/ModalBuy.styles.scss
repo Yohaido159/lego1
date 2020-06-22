@@ -3,8 +3,9 @@
   left: auto !important;
 }
 
-.MuiIconButton-label {
-  display: none !important;
+.MuiRadio-colorSecondary,
+.Mui-checked {
+  color: black !important;
 }
 
 .google-places-autocomplete {

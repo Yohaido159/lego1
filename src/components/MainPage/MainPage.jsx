@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useReducer } from "react";
 
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCartItems } from "../../redux/cart/cart.actions";
+import { HashLink as Link } from "react-router-hash-link";
 
 import "./MainPage.styles.scss";
 
@@ -14,6 +14,7 @@ import Big from "../../after/1.png";
 import Small from "../../after/2.png";
 
 import ModalBuy from "../ModalBuy/ModalBuy";
+import InfoModal from "../infoModal/infoModal";
 
 const cartObj = {
   itemPrice: null,
@@ -32,6 +33,7 @@ const MainPage = (props) => {
     const { name, value } = e.target;
     setCart({ [name]: value });
   };
+
   useEffect(() => {
     console.log(cart);
     dispatch(setCartItems(cart));
@@ -43,9 +45,9 @@ const MainPage = (props) => {
         <div className="hero__content">
           <h1 className="hero__title">הצעצוע המושלם לילדך</h1>
           <h3 className="hero__subtitle">משחק מגנטים יחודי המאפשר לילדך חווית בניה כיפית ויצירתית באופן מיוחד</h3>
-          <a href="#buy" className="btn btn-outline-secondary btn-block mt-auto text-main">
+          <Link to="/#buy" className="btn btn-outline-secondary btn-block mt-auto text-main">
             קנה עכשיו
-          </a>
+          </Link>
         </div>
       </section>
       <section className="services">
@@ -175,7 +177,82 @@ const MainPage = (props) => {
           </div>
         </div>
       </section>
+      <section id="more d-flex justify-content-center">
+        <div className="row">
+          <div className="container">
+            <div className="d-flex flex-column align-items-center mt-40">
+              <button
+                rel="noopener noreferrer"
+                className="btn btn-outline-primary mt-auto text-main mb-0 black"
+                data-toggle="modal"
+                data-target="#infoModal"
+              >
+                עוד מידע
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="return" className="mt-40 mb-40">
+        <div className="return d-flex flex-column align-items-center ">
+          <div className="return__text">
+            <h4 className="">מדיניות החזרות</h4>
+            <p className="font-main">
+              במידה וקבלתם מוצר פגום - נחליפו בחדש. רכשתם מוצר ולא מתאים לכם, ניתן להחזיר מוצר כשהוא סגור באריזתו
+              המקורית ובתנאי שלא נעשה בו שימוש תוך 14 יום, בניכוי דמי משלוח. אחריות הלקוח לשלוח את המוצר בחזרה לכתובתנו
+              ועל חשבונו, כשהוא במצבו שהתקבל כולל תקינות האריזה
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer className="d-flex justify-content-center align-items-center">
+        <div className="cont d-flex flex-column justify-content-center">
+          <div className="row d-flex justify-content-center footer">
+            <div className="footer__icon d-flex mr-5 mbr-40">
+              <i className="fa fa-phone fa-2x ml-2"></i>
+              <p>054-919-2400</p>
+            </div>
+            <div className="footer__icon d-flex mr-5 mbr-40">
+              <i className="fa fa-envelope fa-2x ml-2"></i>
+              <p>lirstoysil@gmail.com</p>
+            </div>
+            <div className="footer__icon d-flex mr-5">
+              <i className="fa fa-whatsapp fa-2x ml-2"></i>
+              <a target="_blank" rel="noopener noreferrer" href="https://bit.ly/3e3lTt2">
+                053-201-9109
+              </a>
+            </div>
+          </div>
+
+          <div className="row d-flex justify-content-center  mt-40 footer">
+            <div className="footer__icon icon--1 d-flex  mr-5 mbr-40">
+              <i className="fa fa-facebook fa-2x ml-2"></i>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.facebook.com/Pro-LIRS-TOYS-526400541048527/"
+              >
+                Facebook
+              </a>
+            </div>
+            <div className="footer__icon icon--2 d-flex  mr-5 mbr-40">
+              <i className="fa fa-instagram fa-2x ml-2"></i>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/lirstoys/">
+                Instagram
+              </a>
+            </div>
+            <div className="footer__icon icon--3 d-flex  mr-5">
+              <i className="fa fa-twitter fa-2x ml-2"></i>
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/lirstoys">
+                Twitter
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
       <ModalBuy />
+      <InfoModal />
     </div>
   );
 };

@@ -6,15 +6,17 @@ const INITIAL_STATE = {
   phone: null,
   itemPrice: null,
   itemName: null,
+  itemQuantity: null,
   shipStreet: null,
   shipCity: null,
   shipNumHome: null,
-  shipPrice: "25 ש''ח",
-  ship: "משלוח עד הבית",
   cardNumber: null,
   cardCVC: null,
   cardEXPYear: null,
   cardEXPMount: null,
+  type_send: null,
+  shipPrice: null,
+  total: null,
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {

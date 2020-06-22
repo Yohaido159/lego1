@@ -1,4 +1,5 @@
 import React, { useState, useReducer, useEffect } from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -15,7 +16,7 @@ import PaymentForm from "./PaymentForm";
 import Review from "./Review";
 
 import { useDispatch, useSelector } from "react-redux";
-import { sendToBuyStart } from "../../redux/cart/cart.actions";
+import { sendToBuyStart, setCartItems } from "../../redux/cart/cart.actions";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -72,6 +73,12 @@ function getStepContent(step, errorObj) {
 const error = {};
 
 export default function Checkout() {
+  const type_send = useSelector((state) => state.cart_main.type_send);
+  const itemPrice = useSelector((state) => state.cart_main.itemPrice);
+  const shipPrice = useSelector((state) => state.cart_main.shipPrice);
+  console.log(type_send);
+  console.log(shipPrice);
+
   const reducer = (state, new_state) => ({ ...state, ...new_state });
   const [errorObj, setErrorObj] = useReducer(reducer, {
     ...error,
@@ -89,6 +96,9 @@ export default function Checkout() {
 
   const handleBuy = () => {
     console.log("hi");
+    const total = parseInt(itemPrice) + parseInt(shipPrice);
+
+    dispatch(setCartItems({ total }));
     dispatch(sendToBuyStart());
     setActiveStep(activeStep + 1);
   };
@@ -112,13 +122,14 @@ export default function Checkout() {
   };
 
   const handleNextStart = () => {
-    const { name, email, phone, shipNumHome, cardNumber, cardCVC, cardEXPYear, cardEXPMount } = cart;
+    const { name, email, phone, shipNumHome, cardNumber, cardCVC, cardEXPYear, cardEXPMount, shipStreet } = cart;
 
     if (activeStep === 0) {
       handleError(name, "name", "צריך להזין שם");
       handleError(email, "email", "צריך להזין אימיל");
       handleError(phone, "phone", "צריך להזין צריך להזין פלאפון");
       handleError(shipNumHome, "numHome", "צריך להזין מס' בית");
+      handleError(shipStreet, "shipStreet", "צריך להזין כתובת");
     }
 
     if (activeStep === 1) {
@@ -174,7 +185,9 @@ export default function Checkout() {
                 <Typography variant="h5" gutterBottom>
                   תודה על ההזמנה.
                 </Typography>
-                <Typography variant="subtitle1">ההזמנה נקלטה במערכת ובימים הקרובים תשלח אליך</Typography>
+                <Typography variant="subtitle1">
+                  הפרטים נשלחו לאימות, אם המידע שהוזן נכון הפריט ישלח בימים הקרובים
+                </Typography>
               </React.Fragment>
             ) : (
               <React.Fragment>

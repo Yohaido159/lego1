@@ -91,6 +91,7 @@ const AdminMain = (props) => {
   /*         */
 
   useEffect(() => {
+    alert("שים לב שצריך שהאימות צריך להיות מופעל");
     dispatch(fetchUsersFormApiStart());
   }, []);
 
@@ -159,6 +160,7 @@ const AdminMain = (props) => {
                   <TableRow>
                     <TableCell align="right">צפה במדבקה</TableCell>
                     <TableCell align="right">סוג משלוח</TableCell>
+                    <TableCell align="right">כמות</TableCell>
                     <TableCell align="right">פריט</TableCell>
                     <TableCell align="right">עיר</TableCell>
                     <TableCell align="right">רחוב</TableCell>
@@ -171,7 +173,7 @@ const AdminMain = (props) => {
                   {newUsers?.map((row) => (
                     <TableRow hover role="checkbox" tabIndex={-1} key={uuid()}>
                       <TableCell align="right">
-                        {row.type_send !== "איסוף עצמי" ? (
+                        {row.type_send !== "איסוף עצמי" && row.type_send !== "משלוח ללוקר" ? (
                           <React.Fragment>
                             <Button variant="contained" onClick={() => ChangeNameToGive(row, row.type_send)}>
                               צפה במדבקה
@@ -188,8 +190,9 @@ const AdminMain = (props) => {
                           </Button>
                         )}
                       </TableCell>
-                      <TableCell align="right">{row.type_send}</TableCell>
-                      <TableCell align="right">{row.item}</TableCell>
+                      <TableCell align="right">{row?.type_send}</TableCell>
+                      <TableCell align="right">{row?.itemQuantity}</TableCell>
+                      <TableCell align="right">{row?.item}</TableCell>
                       <TableCell align="right">{row.city}</TableCell>
                       <TableCell align="right">{row.street}</TableCell>
                       <TableCell align="right">{row.num_home}</TableCell>
@@ -206,6 +209,9 @@ const AdminMain = (props) => {
               <Table>
                 <TableHead>
                   <TableRow>
+                    <TableCell align="right">סוג משלוח</TableCell>
+                    <TableCell align="right">כמות</TableCell>
+                    <TableCell align="right">שם המוצר</TableCell>
                     <TableCell align="right">עיר</TableCell>
                     <TableCell align="right">רחוב</TableCell>
                     <TableCell align="right">מס בית</TableCell>
@@ -216,11 +222,14 @@ const AdminMain = (props) => {
                 <TableBody>
                   {oldUsers.map((row) => (
                     <TableRow hover role="checkbox" tabIndex={-1} key={uuid()}>
-                      <TableCell align="right">{row.city}</TableCell>
-                      <TableCell align="right">{row.street}</TableCell>
-                      <TableCell align="right">{row.num_home}</TableCell>
-                      <TableCell align="right">{row.phone}</TableCell>
-                      <TableCell align="right">{row.name}</TableCell>
+                      <TableCell align="right">{row?.type_send}</TableCell>
+                      <TableCell align="right">{row?.itemQuantity}</TableCell>
+                      <TableCell align="right">{row?.item}</TableCell>
+                      <TableCell align="right">{row?.city}</TableCell>
+                      <TableCell align="right">{row?.street}</TableCell>
+                      <TableCell align="right">{row?.num_home}</TableCell>
+                      <TableCell align="right">{row?.phone}</TableCell>
+                      <TableCell align="right">{row?.name}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

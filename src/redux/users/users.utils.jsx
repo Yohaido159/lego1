@@ -99,6 +99,9 @@ const getAllNewUserDetail = (arr) => {
         res.data.Data?.Entity?.Property_68516405 &&
         res.data.Data?.Entity?.Property_68515460 &&
         res.data.Data?.Entity?.Property_68515470 &&
+        res.data.Data?.Entity?.Property_69190176 &&
+        res.data.Data?.Entity?.Property_69190511 &&
+        res.data.Data?.Entity?.Property_69190538 &&
         res.data.Data?.Entity?.Customers_FullName &&
         res.data.Data?.Entity?.Customers_Phone &&
         user.Billing_Items
@@ -110,8 +113,9 @@ const getAllNewUserDetail = (arr) => {
           city: res.data.Data?.Entity?.Property_68516405[0],
           street: res.data.Data?.Entity?.Property_68515460[0],
           num_home: res.data.Data?.Entity?.Property_68515470[0],
-          item: user.Billing_Items[0].Name,
-          type_send: user.Billing_Items[1].Name,
+          itemQuantity: res.data.Data?.Entity?.Property_69190176[0],
+          item: res.data.Data?.Entity?.Property_69190511[0],
+          type_send: res.data.Data?.Entity?.Property_69190538[0],
         });
       }
     }
@@ -168,7 +172,10 @@ const makeArrSimpleToGive = (arr) => {
       entity.Customers_Phone &&
       entity.Property_68516405 &&
       entity.Property_68515460 &&
-      entity.Property_68515470
+      entity.Property_68515470 &&
+      entity.Property_69190176 &&
+      entity.Property_69190511 &&
+      entity.Property_69190538
     ) {
       return {
         id: entity.ID,
@@ -177,6 +184,9 @@ const makeArrSimpleToGive = (arr) => {
         city: entity.Property_68516405[0],
         street: entity.Property_68515460[0],
         num_home: entity.Property_68515470[0],
+        itemQuantity: entity.Property_69190176[0],
+        item: entity.Property_69190511[0],
+        type_send: entity.Property_69190538[0],
       };
     }
   });
@@ -271,10 +281,13 @@ const getSricker = async (row, type_send) => {
 
   const type_send_func = (type_send) => {
     if (type_send === "משלוח עד הבית") {
-      return { type: "מסירה", num_code_send: 35, type_code_send: 10, locker: "", detail: `${row.item}` };
-    }
-    if (type_send === "משלוח ללוקר") {
-      return { type: "איסוף", num_code_send: 50, type_code_send: 11, locker: "Y", detail: `${row.item}` };
+      return {
+        type: "מסירה",
+        num_code_send: 35,
+        type_code_send: 10,
+        locker: "",
+        detail: `${row.item} שם המוצר: ||  ${row.itemQuantity} כמות המוצר:`,
+      };
     }
   };
   const type_send_obj = type_send_func(type_send);

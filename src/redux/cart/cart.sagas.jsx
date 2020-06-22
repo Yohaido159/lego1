@@ -18,8 +18,9 @@ const MakeMonthWithoutZero = (mounth) => {
   if (mounth.toString()[0] === "0") {
     newMounth = parseInt(mounth.toString().slice(1));
     console.log(newMounth);
+    return newMounth;
   }
-  return newMounth;
+  return mounth;
 };
 
 export function* sendToAPI() {
@@ -34,6 +35,9 @@ export function* sendToAPI() {
       Property_68516405: cart.shipCity,
       Property_68515460: cart.shipStreet,
       Property_68515470: cart.shipNumHome,
+      Property_69190176: cart.itemQuantity,
+      Property_69190511: cart.itemName,
+      Property_69190538: cart.type_send,
     },
     PaymentMethod: {
       CreditCard_Number: cart.cardNumber,
@@ -52,15 +56,29 @@ export function* sendToAPI() {
           ExternalIdentifier: null,
           SearchMode: null,
         },
-        Quantity: 1,
+        Quantity: parseInt(cart.itemQuantity),
         Description: cart.itemName,
+      },
+      {
+        Item: {
+          Name: cart.type_send,
+          Price: cart.shipPrice,
+          Currency: null,
+          Cost: cart.shipPrice,
+          ExternalIdentifier: null,
+          SearchMode: null,
+        },
+        Quantity: 1,
+        Description: cart.type_send,
       },
     ],
     UpdateCustomerByEmail: true,
     UpdateCustomerByEmail_AttachDocument: true,
     SendDocumentByEmail: true,
-    DocumentLanguage: true,
-    AuthoriseOnly: true,
+    SendDocumentByEmail_Language: "0",
+    DocumentLanguage: "0",
+    VATIncluded: true,
+    AuthoriseOnly: false,
     DraftDocument: null,
     Credentials: {
       CompanyID: 67576974,

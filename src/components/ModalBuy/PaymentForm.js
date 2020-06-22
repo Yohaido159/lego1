@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
@@ -13,7 +14,8 @@ import { KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/picker
 const cartObj = {
   cardNumber: null,
   cardCVC: null,
-  cardEXP: null,
+  cardEXPMount: null,
+  cardEXPYear: null,
 };
 
 export default function PaymentForm({ errorObj }) {
@@ -37,10 +39,12 @@ export default function PaymentForm({ errorObj }) {
   }, [cart]);
 
   const handleDateChangeFunc = (e) => {
-    let mount = e.getMonth() + 1;
-    let year = e.getFullYear();
-    setCart({ cardEXPMount: mount, cardEXPYear: year });
-    handleDateChange(e);
+    if (e !== null) {
+      let mount = e.getMonth() + 1;
+      let year = e.getFullYear();
+      setCart({ cardEXPMount: mount, cardEXPYear: year });
+      handleDateChange(e);
+    }
   };
   return (
     <React.Fragment>
