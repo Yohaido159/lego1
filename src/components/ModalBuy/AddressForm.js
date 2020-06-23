@@ -17,6 +17,8 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { useDispatch } from "react-redux";
 import { setCartItems } from "../../redux/cart/cart.actions";
 
+import { checkIfValid } from "./ModalBuy.utils";
+
 const useStyles = makeStyles((theme) => ({}));
 
 const cartObj = {
@@ -70,8 +72,14 @@ const AddressForm = ({ errorObj }) => {
 
   const handleAddress = (e) => {
     console.log(e);
+    const cityValid = checkIfValid(e.terms[1].value);
+
     let street = e.terms[0].value;
-    let city = e.terms[1].value;
+    let city = cityValid ? e.terms[1].value : e?.terms[2].value;
+
+    console.log(city);
+    console.log(street);
+
     setCart({ shipStreet: street, shipCity: city });
   };
 

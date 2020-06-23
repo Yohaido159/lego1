@@ -17,6 +17,9 @@ const INITIAL_STATE = {
   type_send: null,
   shipPrice: null,
   total: null,
+  sticker: "ריק",
+  statusRes: null,
+  startProcess: false,
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -26,6 +29,17 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         ...action.cart,
       };
+    case cartTypes.SET_RES_FROM_CHECKOUT:
+      return {
+        ...state,
+        statusRes: action.res,
+      };
+    case cartTypes.START_PROCESS_PAYMENT:
+      return {
+        ...state,
+        startProcess: action.startProcess,
+      };
+
     default:
       return state;
   }

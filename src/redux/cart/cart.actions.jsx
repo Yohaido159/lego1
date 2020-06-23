@@ -18,3 +18,13 @@ export const sendToBuyFail = (message) => ({
 export const sendToBuyStart = () => ({
   type: cartTypes.SEND_TO_API_START,
 });
+
+export const setResFromCheckout = (res) => ({
+  type: cartTypes.SET_RES_FROM_CHECKOUT,
+  res: res,
+});
+
+export const StartProcessPayment = (startProcess) => ({
+  type: cartTypes.START_PROCESS_PAYMENT,
+  startProcess: startProcess,
+});

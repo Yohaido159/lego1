@@ -1,4 +1,5 @@
 import usersTypes from "./users.types";
+import { removeFromUsersById } from "./users.utils";
 
 export const fetchUsersFormApiStart = () => ({
   type: usersTypes.FETCH_USERS_FORM_API_START,
@@ -7,6 +8,11 @@ export const fetchUsersFormApiStart = () => ({
 export const setAllNewUserDetail = (users) => ({
   type: usersTypes.SET_ALL_NEW_USER_DETAIL,
   users: users,
+});
+
+export const removeFromAllNewUserDetailById = (id) => ({
+  type: usersTypes.REMOVE_FROM_ALL_NEW_USER_DETAIL_BY_ID,
+  users: removeFromUsersById(id),
 });
 
 export const setBuyUserDetail = (users) => ({

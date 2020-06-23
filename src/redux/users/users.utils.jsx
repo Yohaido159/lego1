@@ -1,6 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { setAllNewUserDetail, setBuyUserDetail, setOpenSnack, errMsg } from "./users.actions";
+import {
+  setAllNewUserDetail,
+  setBuyUserDetail,
+  setOpenSnack,
+  errMsg,
+  removeFromAllNewUserDetailById,
+} from "./users.actions";
 
 import store from "../../redux/store";
 
@@ -38,8 +44,14 @@ const filterData = (data) => {
     let newUserBuyArr = arr.filter((entity) => entity.Billing_Valid !== undefined);
     console.log(newUserBuyArr);
 
+    // TEST ONLY
+    let newUserBuyArrForTest = arr;
+    console.log(newUserBuyArrForTest);
+
     // מכניס רק את מי שיש לו שם
-    let newUserWithName = newUserBuyArr.filter((entity) => entity.Billing_Customer !== undefined);
+    // let newUserWithName = newUserBuyArr.filter((entity) => entity.Billing_Customer !== undefined);
+    let newUserWithName = newUserBuyArrForTest.filter((entity) => entity.Billing_Customer !== undefined);
+    console.log(newUserWithName);
 
     // מחזיר רק את מי שאין לו בשם שולם או הועבר למשלוח
     let newUser = checkUserReturnEmpty(newUserWithName);
@@ -96,19 +108,21 @@ const getAllNewUserDetail = (arr) => {
       let res = await axios.post(url, data);
 
       if (
+        res.data.Data?.Entity?.Customers_FullName &&
+        res.data.Data?.Entity?.Customers_EmailAddress &&
+        res.data.Data?.Entity?.Customers_Phone &&
         res.data.Data?.Entity?.Property_68516405 &&
         res.data.Data?.Entity?.Property_68515460 &&
         res.data.Data?.Entity?.Property_68515470 &&
         res.data.Data?.Entity?.Property_69190176 &&
         res.data.Data?.Entity?.Property_69190511 &&
         res.data.Data?.Entity?.Property_69190538 &&
-        res.data.Data?.Entity?.Customers_FullName &&
-        res.data.Data?.Entity?.Customers_Phone &&
-        user.Billing_Items
+        res.data.Data?.Entity?.Property_69241918
       ) {
         mainDetailUser.push({
           id: res.data.Data?.Entity?.ID,
           name: res.data.Data?.Entity?.Customers_FullName[0],
+          email: res.data.Data?.Entity?.Customers_EmailAddress[0],
           phone: res.data.Data?.Entity?.Customers_Phone[0],
           city: res.data.Data?.Entity?.Property_68516405[0],
           street: res.data.Data?.Entity?.Property_68515460[0],
@@ -116,6 +130,7 @@ const getAllNewUserDetail = (arr) => {
           itemQuantity: res.data.Data?.Entity?.Property_69190176[0],
           item: res.data.Data?.Entity?.Property_69190511[0],
           type_send: res.data.Data?.Entity?.Property_69190538[0],
+          sticker: res.data.Data?.Entity?.Property_69241918[0],
         });
       }
     }
@@ -153,7 +168,6 @@ const filterUser = (data) => {
     // מחזיר רשימה רק של מי שיש לו בשם "שולם"
     users = makeArrSimpleToGive(arr);
     console.log(users);
-    //   setBuyUserDetail(users);
     store.dispatch(setBuyUserDetail(users));
   }
   return users;
@@ -161,25 +175,29 @@ const filterUser = (data) => {
 
 const makeArrSimpleToGive = (arr) => {
   let newArr = [];
+  let newArrFinly = [];
   console.log(arr);
   newArr = filterUserByBuy(arr);
   console.log(newArr);
 
-  newArr = newArr.map((entity) => {
+  newArr.forEach((entity) => {
     if (
       entity.ID &&
       entity.Customers_FullName &&
+      entity.Customers_EmailAddress &&
       entity.Customers_Phone &&
       entity.Property_68516405 &&
       entity.Property_68515460 &&
       entity.Property_68515470 &&
       entity.Property_69190176 &&
       entity.Property_69190511 &&
-      entity.Property_69190538
+      entity.Property_69190538 &&
+      entity.Property_69241918
     ) {
-      return {
+      newArrFinly.push({
         id: entity.ID,
         name: entity.Customers_FullName[0],
+        email: entity.Customers_EmailAddress[0],
         phone: entity.Customers_Phone[0],
         city: entity.Property_68516405[0],
         street: entity.Property_68515460[0],
@@ -187,11 +205,12 @@ const makeArrSimpleToGive = (arr) => {
         itemQuantity: entity.Property_69190176[0],
         item: entity.Property_69190511[0],
         type_send: entity.Property_69190538[0],
-      };
+        sticker: entity.Property_69241918[0],
+      });
     }
   });
-  console.log(newArr);
-  return newArr;
+  console.log(newArrFinly);
+  return newArrFinly;
 };
 
 const filterUserByBuy = (arr) => {
@@ -230,20 +249,22 @@ export const sendToAPI = async (row) => {
 /***************************/
 
 export const ChangeNameToGive = async (row, type_send) => {
+  handleClick();
+  store.dispatch(removeFromAllNewUserDetailById(row.id));
+
   console.log(row);
   let msg;
   let urlSticker = await getSricker(row, type_send);
   if (urlSticker.success === true) {
-    handleClick();
     urlSticker = urlSticker.url;
     console.log(urlSticker);
     redirect_blank(urlSticker);
-    handleClose();
   } else if (urlSticker.success === false) {
     msg = urlSticker.msg;
     store.dispatch(errMsg(msg));
     console.log(msg);
   }
+  handleClose();
 
   function redirect_blank(url) {
     console.log(url);
@@ -266,6 +287,19 @@ export const handleClose = (event, reason) => {
 
   store.dispatch(setOpenSnack(false));
 };
+
+/***************************/
+// Remove From Users By Id
+/***************************/
+
+export const removeFromUsersById = (id) => {
+  console.log("removeFromUsersById");
+  const state = store.getState();
+  console.log(state);
+  const newUsers = state.users_main.newUsers.filter((user) => user.id !== id);
+  return newUsers;
+};
+
 /***************************/
 // Get Sricker
 /***************************/
@@ -312,6 +346,7 @@ const getSricker = async (row, type_send) => {
   let xmlRes = parseXml(res.data);
   let url2;
   if (xmlRes.success === true) {
+    await sendToSetStickerOfficeGuy(row.id, xmlRes.ship_create_num);
     url2 = `https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_print_ws&ARGUMENTS=-N${xmlRes.ship_create_num}`;
     console.log(url2);
     sendToAPI(row);
@@ -321,6 +356,28 @@ const getSricker = async (row, type_send) => {
   } else {
     return { success: false, msg: xmlRes.error };
   }
+};
+
+/***************************/
+// Send To Set Sticker Office Guy
+/***************************/
+const sendToSetStickerOfficeGuy = async (id, number) => {
+  const url = "https://www.myofficeguy.com/api/crm/data/updateentity/";
+  const data = {
+    Entity: {
+      ID: id,
+      Folder: "67379936",
+      Property_69241918: number,
+    },
+    CreateIfMissing: false,
+    RemoveExistingProperties: false,
+    Credentials: {
+      CompanyID: num_shop,
+      APIKey: key,
+    },
+  };
+  const res = await axios.post(url, data);
+  console.log(res);
 };
 
 /***************************/

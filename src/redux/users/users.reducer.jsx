@@ -15,6 +15,11 @@ const usersReducer = (state = INITIAL_STATE, action) => {
         ...state,
         newUsers: action.users,
       };
+    case usersTypes.REMOVE_FROM_ALL_NEW_USER_DETAIL_BY_ID:
+      return {
+        ...state,
+        newUsers: action.users,
+      };
     case usersTypes.SET_BUY_USER_DETAIL:
       return {
         ...state,

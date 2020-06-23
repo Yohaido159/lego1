@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useReducer, useEffect, Fragment } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -14,6 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
 import Review from "./Review";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { useDispatch, useSelector } from "react-redux";
 import { sendToBuyStart, setCartItems } from "../../redux/cart/cart.actions";
@@ -76,6 +77,9 @@ export default function Checkout() {
   const type_send = useSelector((state) => state.cart_main.type_send);
   const itemPrice = useSelector((state) => state.cart_main.itemPrice);
   const shipPrice = useSelector((state) => state.cart_main.shipPrice);
+  const startProcess = useSelector((state) => state.cart_main.startProcess);
+  const statusRes = useSelector((state) => state.cart_main.statusRes);
+
   console.log(type_send);
   console.log(shipPrice);
 
@@ -87,8 +91,6 @@ export default function Checkout() {
   const [number, setNumber] = useState(1);
   console.log(errorObj);
   const cart = useSelector((state) => state.cart_main);
-
-  const a = React.createRef(null);
 
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -182,12 +184,32 @@ export default function Checkout() {
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
-                <Typography variant="h5" gutterBottom>
-                  תודה על ההזמנה.
-                </Typography>
-                <Typography variant="subtitle1">
-                  הפרטים נשלחו לאימות, אם המידע שהוזן נכון הפריט ישלח בימים הקרובים
-                </Typography>
+                {startProcess ? (
+                  <CircularProgress />
+                ) : (
+                  <Fragment>
+                    {statusRes?.data.Status === 0 ? (
+                      <Fragment>
+                        <Typography className="black" variant="h5" gutterBottom>
+                          תודה על ההזמנה.
+                        </Typography>
+                        <Typography variant="subtitle1">הזמנתך התקבלה בהצלחה במערכת</Typography>
+                      </Fragment>
+                    ) : (
+                      <Fragment>
+                        <Typography className="black" variant="h5" gutterBottom>
+                          שגיאה
+                        </Typography>
+                        <Typography variant="subtitle1">
+                          {statusRes?.data?.UserErrorMessage && statusRes?.data?.UserErrorMessage}
+                        </Typography>
+                        <Typography variant="subtitle1">
+                          {statusRes?.data?.TechnicalErrorDetails && statusRes?.data?.TechnicalErrorDetails}
+                        </Typography>
+                      </Fragment>
+                    )}
+                  </Fragment>
+                )}
               </React.Fragment>
             ) : (
               <React.Fragment>

@@ -91,7 +91,6 @@ const AdminMain = (props) => {
   /*         */
 
   useEffect(() => {
-    alert("שים לב שצריך שהאימות צריך להיות מופעל");
     dispatch(fetchUsersFormApiStart());
   }, []);
 
@@ -149,11 +148,10 @@ const AdminMain = (props) => {
             centered
             variant="fullWidth"
           >
-            <Tab className={classes.tab} label="קנו וצריך לשלוח ללוקר" />
             <Tab className={classes.tab} label="הועבר המידע לחברת משלוחים" />
             <Tab className={classes.tab} label="קנו וצריך לשלוח רגיל" />
           </Tabs>
-          <TabPanel value={valueForLable} index={2}>
+          <TabPanel value={valueForLable} index={1}>
             <TableContainer component={Paper}>
               <Table>
                 <TableHead>
@@ -166,7 +164,8 @@ const AdminMain = (props) => {
                     <TableCell align="right">רחוב</TableCell>
                     <TableCell align="right">מס בית</TableCell>
                     <TableCell align="right">פלאפון</TableCell>
-                    <TableCell align="right">שם \ אימיל</TableCell>
+                    <TableCell align="right">איימיל</TableCell>
+                    <TableCell align="right">שם</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -197,6 +196,7 @@ const AdminMain = (props) => {
                       <TableCell align="right">{row.street}</TableCell>
                       <TableCell align="right">{row.num_home}</TableCell>
                       <TableCell align="right">{row.phone}</TableCell>
+                      <TableCell align="right">{row.email}</TableCell>
                       <TableCell align="right">{row.name}</TableCell>
                     </TableRow>
                   ))}
@@ -204,11 +204,12 @@ const AdminMain = (props) => {
               </Table>
             </TableContainer>
           </TabPanel>
-          <TabPanel value={valueForLable} index={1}>
+          <TabPanel value={valueForLable} index={0}>
             <TableContainer component={Paper}>
               <Table>
                 <TableHead>
                   <TableRow>
+                    <TableCell align="right">צפה במדבקה</TableCell>
                     <TableCell align="right">סוג משלוח</TableCell>
                     <TableCell align="right">כמות</TableCell>
                     <TableCell align="right">שם המוצר</TableCell>
@@ -216,12 +217,28 @@ const AdminMain = (props) => {
                     <TableCell align="right">רחוב</TableCell>
                     <TableCell align="right">מס בית</TableCell>
                     <TableCell align="right">פלאפון</TableCell>
-                    <TableCell align="right">שם \ אימיל</TableCell>
+                    <TableCell align="right">איימיל</TableCell>
+                    <TableCell align="right">שם</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {oldUsers.map((row) => (
                     <TableRow hover role="checkbox" tabIndex={-1} key={uuid()}>
+                      <TableCell align="right">
+                        {row?.sticker !== "ריק" ? (
+                          <Button
+                            variant="contained"
+                            component={"a"}
+                            target="_blank"
+                            href={`https://run.hfd.co.il/RunCom.Server/Request.aspx?APPNAME=run&PRGNAME=ship_print_ws&ARGUMENTS=-N${row?.sticker}`}
+                            rel="noopener noreferrer"
+                          >
+                            צפה במדבקה שכבר נקלטה
+                          </Button>
+                        ) : (
+                          "----"
+                        )}
+                      </TableCell>
                       <TableCell align="right">{row?.type_send}</TableCell>
                       <TableCell align="right">{row?.itemQuantity}</TableCell>
                       <TableCell align="right">{row?.item}</TableCell>
@@ -229,6 +246,7 @@ const AdminMain = (props) => {
                       <TableCell align="right">{row?.street}</TableCell>
                       <TableCell align="right">{row?.num_home}</TableCell>
                       <TableCell align="right">{row?.phone}</TableCell>
+                      <TableCell align="right">{row?.email}</TableCell>
                       <TableCell align="right">{row?.name}</TableCell>
                     </TableRow>
                   ))}
@@ -237,13 +255,18 @@ const AdminMain = (props) => {
             </TableContainer>
           </TabPanel>
 
-          {valueForLable === 2 && (
+          {valueForLable === 1 && (
             <Box className="d-flex flex-column align-items-center">
               <Typography className="mb-3 admin">להעביר את המידע לחברת המשלוחים</Typography>
-              {errMsg && `${errMsg}`}
+              {errMsg && (
+                <>
+                  <Typography className="mb-3 admin">שגיאה</Typography> <br />
+                  <p className="black"> {errMsg} </p>
+                </>
+              )}
             </Box>
           )}
-          {valueForLable === 1 && (
+          {valueForLable === 0 && (
             <Box className="d-flex flex-column align-items-center">
               <Typography className="mb-3 admin">חברת המשלוחים אספה את ההזמנות</Typography>
             </Box>

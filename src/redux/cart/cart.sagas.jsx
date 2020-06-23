@@ -1,6 +1,8 @@
 import cartTypes from "./cart.types";
 import { takeLatest, call, put, select } from "redux-saga/effects";
 import axios from "axios";
+import store from "../../redux/store";
+import { setResFromCheckout, StartProcessPayment } from "../../redux/cart/cart.actions";
 
 const MakePhoneWithoutZero = (phone) => {
   console.log(phone);
@@ -24,6 +26,7 @@ const MakeMonthWithoutZero = (mounth) => {
 };
 
 export function* sendToAPI() {
+  store.dispatch(StartProcessPayment(true));
   const cart = yield select((state) => state.cart_main);
   console.log(cart);
   const url = "https://www.myofficeguy.com/api/billing/payments/charge/";
@@ -38,6 +41,7 @@ export function* sendToAPI() {
       Property_69190176: cart.itemQuantity,
       Property_69190511: cart.itemName,
       Property_69190538: cart.type_send,
+      Property_69241918: cart.sticker,
     },
     PaymentMethod: {
       CreditCard_Number: cart.cardNumber,
@@ -88,6 +92,8 @@ export function* sendToAPI() {
 
   const res = yield axios.post(url, data);
   console.log(res);
+  store.dispatch(setResFromCheckout(res));
+  store.dispatch(StartProcessPayment(false));
 }
 
 export function* sendToAPIStartSaga() {
