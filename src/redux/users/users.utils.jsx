@@ -18,7 +18,7 @@ const num_shop = 67576974;
 /***************************/
 
 export const fetchData = async () => {
-  const url = "https://www.myofficeguy.com/api/crm/data/listentities/";
+  const url = "https://cors-anywhere.herokuapp.com/https://www.myofficeguy.com/api/crm/data/listentities/";
   const data = {
     Folder: 67380502,
     IncludeInheritedFolders: true,
@@ -35,7 +35,7 @@ export const fetchData = async () => {
   filterData(resData);
 };
 
-const filterData = (data) => {
+export const filterData = (data) => {
   console.log(data);
   const arr = data?.Data?.Entities;
   console.log(arr);
@@ -45,12 +45,12 @@ const filterData = (data) => {
     console.log(newUserBuyArr);
 
     // TEST ONLY
-    let newUserBuyArrForTest = arr;
-    console.log(newUserBuyArrForTest);
+    // let newUserBuyArrForTest = arr;
+    // console.log(newUserBuyArrForTest);
 
     // מכניס רק את מי שיש לו שם
-    // let newUserWithName = newUserBuyArr.filter((entity) => entity.Billing_Customer !== undefined);
-    let newUserWithName = newUserBuyArrForTest.filter((entity) => entity.Billing_Customer !== undefined);
+    let newUserWithName = newUserBuyArr.filter((entity) => entity.Billing_Customer !== undefined);
+    // let newUserWithName = newUserBuyArrForTest.filter((entity) => entity.Billing_Customer !== undefined);
     console.log(newUserWithName);
 
     // מחזיר רק את מי שאין לו בשם שולם או הועבר למשלוח
@@ -72,14 +72,14 @@ const filterData = (data) => {
   }
 };
 
-const checkUserReturnEmpty = (arr) => {
+export const checkUserReturnEmpty = (arr) => {
   const newUser = arr.filter((user) => {
     return !user?.Billing_Customer[0].Name.includes("שולם") && !user?.Billing_Customer[0].Name.includes("הועבר_למשלוח");
   });
   return newUser;
 };
 
-const checkUserBuy = (arr) => {
+export const checkUserBuy = (arr) => {
   const userBuy = arr.filter((user) => {
     if (user.Billing_Customer) {
       return user?.Billing_Customer[0].Name.includes("שולם");
@@ -88,10 +88,10 @@ const checkUserBuy = (arr) => {
   return userBuy;
 };
 
-const getAllNewUserDetail = (arr) => {
+export const getAllNewUserDetail = (arr) => {
   let mainDetailUser = [];
 
-  let url = "https://www.myofficeguy.com/api/crm/data/getentity/";
+  let url = "https://cors-anywhere.herokuapp.com/https://www.myofficeguy.com/api/crm/data/getentity/";
 
   arr.forEach(async (user) => {
     if (user.Billing_Customer[0] !== undefined) {
@@ -106,44 +106,49 @@ const getAllNewUserDetail = (arr) => {
         },
       };
       let res = await axios.post(url, data);
-
-      if (
-        res.data.Data?.Entity?.Customers_FullName &&
-        res.data.Data?.Entity?.Customers_EmailAddress &&
-        res.data.Data?.Entity?.Customers_Phone &&
-        res.data.Data?.Entity?.Property_68516405 &&
-        res.data.Data?.Entity?.Property_68515460 &&
-        res.data.Data?.Entity?.Property_68515470 &&
-        res.data.Data?.Entity?.Property_69190176 &&
-        res.data.Data?.Entity?.Property_69190511 &&
-        res.data.Data?.Entity?.Property_69190538 &&
-        res.data.Data?.Entity?.Property_69241918
-      ) {
-        mainDetailUser.push({
-          id: res.data.Data?.Entity?.ID,
-          name: res.data.Data?.Entity?.Customers_FullName[0],
-          email: res.data.Data?.Entity?.Customers_EmailAddress[0],
-          phone: res.data.Data?.Entity?.Customers_Phone[0],
-          city: res.data.Data?.Entity?.Property_68516405[0],
-          street: res.data.Data?.Entity?.Property_68515460[0],
-          num_home: res.data.Data?.Entity?.Property_68515470[0],
-          itemQuantity: res.data.Data?.Entity?.Property_69190176[0],
-          item: res.data.Data?.Entity?.Property_69190511[0],
-          type_send: res.data.Data?.Entity?.Property_69190538[0],
-          sticker: res.data.Data?.Entity?.Property_69241918[0],
-        });
-      }
+      mainDetailUser = makeUserArrSimple(res, mainDetailUser);
     }
   });
   console.log(mainDetailUser);
   return mainDetailUser;
 };
 
+export const makeUserArrSimple = (res, arr) => {
+  console.log(res);
+  if (
+    res.data.Data?.Entity?.Customers_FullName &&
+    res.data.Data?.Entity?.Customers_EmailAddress &&
+    res.data.Data?.Entity?.Customers_Phone &&
+    res.data.Data?.Entity?.Property_68516405 &&
+    res.data.Data?.Entity?.Property_68515460 &&
+    res.data.Data?.Entity?.Property_68515470 &&
+    res.data.Data?.Entity?.Property_69190176 &&
+    res.data.Data?.Entity?.Property_69190511 &&
+    res.data.Data?.Entity?.Property_69190538 &&
+    res.data.Data?.Entity?.Property_69241918
+  ) {
+    arr.push({
+      id: res.data.Data?.Entity?.ID,
+      name: res.data.Data?.Entity?.Customers_FullName[0],
+      email: res.data.Data?.Entity?.Customers_EmailAddress[0],
+      phone: res.data.Data?.Entity?.Customers_Phone[0],
+      city: res.data.Data?.Entity?.Property_68516405[0],
+      street: res.data.Data?.Entity?.Property_68515460[0],
+      num_home: res.data.Data?.Entity?.Property_68515470[0],
+      itemQuantity: res.data.Data?.Entity?.Property_69190176[0],
+      item: res.data.Data?.Entity?.Property_69190511[0],
+      type_send: res.data.Data?.Entity?.Property_69190538[0],
+      sticker: res.data.Data?.Entity?.Property_69241918[0],
+    });
+    return arr;
+  }
+};
+
 /***************************/
 // when started - 2
 /***************************/
 export const fetchAllUser = async () => {
-  const url = "https://www.myofficeguy.com/api/crm/data/listentities/";
+  const url = "https://cors-anywhere.herokuapp.com/https://www.myofficeguy.com/api/crm/data/listentities/";
   const data = {
     Folder: 67379936,
     IncludeInheritedFolders: true,
@@ -160,7 +165,7 @@ export const fetchAllUser = async () => {
   filterUser(resData);
 };
 
-const filterUser = (data) => {
+export const filterUser = (data) => {
   // מקבל את רשימת האנשים שנרשמו
   const arr = data?.Data?.Entities;
   let users;
@@ -173,7 +178,7 @@ const filterUser = (data) => {
   return users;
 };
 
-const makeArrSimpleToGive = (arr) => {
+export const makeArrSimpleToGive = (arr) => {
   let newArr = [];
   let newArrFinly = [];
   console.log(arr);
@@ -213,7 +218,7 @@ const makeArrSimpleToGive = (arr) => {
   return newArrFinly;
 };
 
-const filterUserByBuy = (arr) => {
+export const filterUserByBuy = (arr) => {
   const userBuy = arr.filter((user) => {
     if (user.Customers_FullName) {
       return user?.Customers_FullName[0].includes("שולם");
@@ -226,7 +231,7 @@ const filterUserByBuy = (arr) => {
 // Send To Api
 /***************************/
 export const sendToAPI = async (row) => {
-  const url = "https://www.myofficeguy.com/api/crm/data/updateentity/";
+  const url = "https://cors-anywhere.herokuapp.com/https://www.myofficeguy.com/api/crm/data/updateentity/";
   const data = {
     Entity: {
       ID: `${row.id}`,
@@ -276,7 +281,7 @@ export const ChangeNameToGive = async (row, type_send) => {
   }
 };
 
-const handleClick = () => {
+export const handleClick = () => {
   store.dispatch(setOpenSnack(true));
 };
 
@@ -303,7 +308,7 @@ export const removeFromUsersById = (id) => {
 /***************************/
 // Get Sricker
 /***************************/
-const getSricker = async (row, type_send) => {
+export const getSricker = async (row, type_send) => {
   let token = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL3J1bmNvbS5jby5pbC9jbGFpbXMvY2xpZW50bm8iOiIzMzk5IiwiaHR0cHM6Ly9ydW5jb20uY28uaWwvY2xhaW1zL3BocmFzZSI6IjdhMWExYmMxLTUwMTMtNGMwMS05OTEzLTJlZDk1NjVkMGYwYiIsImV4cCI6MTYwOTE2OTM1MiwiaXNzIjoiaHR0cHM6Ly9ydW5jb20uY28uaWwiLCJhdWQiOiJodHRwczovL3J1bmNvbS5jby5pbCJ9.0BK-7WPhhZvgT05I_3lXbXe-g5zvV8LkFpKdOhHPuHc`;
   // let token = `abc`;
 
@@ -361,8 +366,8 @@ const getSricker = async (row, type_send) => {
 /***************************/
 // Send To Set Sticker Office Guy
 /***************************/
-const sendToSetStickerOfficeGuy = async (id, number) => {
-  const url = "https://www.myofficeguy.com/api/crm/data/updateentity/";
+export const sendToSetStickerOfficeGuy = async (id, number) => {
+  const url = "https://cors-anywhere.herokuapp.com/https://www.myofficeguy.com/api/crm/data/updateentity/";
   const data = {
     Entity: {
       ID: id,
@@ -384,7 +389,7 @@ const sendToSetStickerOfficeGuy = async (id, number) => {
 // Parse Xml
 /***************************/
 
-const parseXml = (xml) => {
+export const parseXml = (xml) => {
   let parser = new DOMParser();
   let xmlDoc = parser.parseFromString(xml, "text/xml");
 

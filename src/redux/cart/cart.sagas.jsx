@@ -1,29 +1,9 @@
 import cartTypes from "./cart.types";
+import { MakePhoneWithoutZero, MakeMonthWithoutZero } from "./cart.utils";
 import { takeLatest, call, put, select } from "redux-saga/effects";
 import axios from "axios";
 import store from "../../redux/store";
 import { setResFromCheckout, StartProcessPayment } from "../../redux/cart/cart.actions";
-
-const MakePhoneWithoutZero = (phone) => {
-  console.log(phone);
-  let newPhone = "";
-  if (phone.toString()[0] === "0") {
-    newPhone = parseInt(phone.toString().slice(1));
-    console.log(newPhone);
-  }
-  return newPhone;
-};
-
-const MakeMonthWithoutZero = (mounth) => {
-  console.log(mounth);
-  let newMounth = "";
-  if (mounth.toString()[0] === "0") {
-    newMounth = parseInt(mounth.toString().slice(1));
-    console.log(newMounth);
-    return newMounth;
-  }
-  return mounth;
-};
 
 export function* sendToAPI() {
   store.dispatch(StartProcessPayment(true));
@@ -82,7 +62,7 @@ export function* sendToAPI() {
     SendDocumentByEmail_Language: "0",
     DocumentLanguage: "0",
     VATIncluded: true,
-    AuthoriseOnly: false,
+    AuthoriseOnly: true,
     DraftDocument: null,
     Credentials: {
       CompanyID: 67576974,

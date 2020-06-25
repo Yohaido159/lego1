@@ -183,7 +183,7 @@ export default function Checkout() {
           </Stepper>
           <React.Fragment>
             {activeStep === steps.length ? (
-              <React.Fragment>
+              <div className="d-flex justify-content-center align-items-center">
                 {startProcess ? (
                   <CircularProgress />
                 ) : (
@@ -210,7 +210,7 @@ export default function Checkout() {
                     )}
                   </Fragment>
                 )}
-              </React.Fragment>
+              </div>
             ) : (
               <React.Fragment>
                 {getStepContent(activeStep, errorObj)}
